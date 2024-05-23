@@ -1,0 +1,88 @@
+\newlength{\titleskip}
+\setlength{\titleskip}{2ex plus 1ex minus 2ex}
+
+
+\definecolor{ict}{HTML}{0055a2}
+\definecolor{ictfg}{HTML}{58595b}
+
+% 标配蓝线
+\newcommand{\ict@rule}[1]{\textcolor{ict}{\rule[#1]{\textwidth}{1.5pt}}}
+
+% 作者信息
+
+% 标题字体颜色
+\setbeamercolor{title}{fg=ictfg}
+\setbeamerfont{title}{size=\LARGE}
+
+% 标题页面
+\setbeamertemplate{title page}{
+    \vspace{-1.5em}
+    \hspace{-2em}
+    \insertlogo
+    \vspace{1.5em}
+    % 让第一条横线略微居中
+    \vskip 0.1\textheight
+    \begin{center}
+        \ict@rule{1ex}
+        \vskip \titleskip
+        { \usebeamerfont{title}\usebeamercolor[fg]{title} \inserttitle}
+        \vskip \titleskip
+        \ict@rule{1ex}
+        % 标题与作者信息之间分割
+        \vskip 2ex plus 1ex minus 2ex
+        % 作者信息
+        \usebeamertemplate{author}
+        \usebeamertemplate{institute}
+        \usebeamertemplate{date}
+    \end{center}
+}
+
+\setbeamertemplate{sidebar left}{}
+
+\setbeamertemplate{sidebar right}{}
+
+\setbeamertemplate{navigation symbols}{}
+
+% 页标题样式
+\setbeamerfont{frametitle}{size=\LARGE}
+\setbeamertemplate{frametitle}{
+    \vspace{1em}
+    { \usebeamerfont{frametitle}\usebeamercolor[fg]{frametitle} \insertframetitle}
+    \ict@rule{0ex}
+}
+
+\setbeamerfont{titlelike}{size=\LARGE}
+\setbeamercolor{titlelike}{fg=ictfg}
+
+% Section Divider
+\AtBeginSection[]{
+    \begin{frame}[plain]
+        \vspace{-3.5em}
+        \hspace{-2em}
+        \insertlogo
+        \vfill
+        {
+            \usebeamercolor[fg]{titlelike}
+            \usebeamerfont{titlelike}
+            \insertsectionhead
+            \par
+        }
+        \ict@rule{1ex}
+        \vfill
+    \end{frame}
+}
+
+
+% 正文
+\setbeamercolor{normal text}{fg=ictfg}
+
+
+% 颜色
+\setbeamercolor*{palette primary}{fg=ict!60!black,bg=gray!30!white}
+\setbeamercolor*{palette secondary}{fg=ict!70!black,bg=gray!15!white}
+\setbeamercolor*{palette tertiary}{bg=ict!80!black,fg=gray!10!white}
+\setbeamercolor*{palette quaternary}{fg=ict,bg=gray!5!white}
+
+
+% itemize
+\setbeamertemplate{itemize items}[square]
